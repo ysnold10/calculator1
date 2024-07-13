@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <script src="script.js" defer></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+<body>
+    <main id="app">
+        <div v-show="home">
+        <input type="text" placeholder="enter the first num" v-model="firstnum" v-show="firstnumshow">
+        <input type="text" placeholder="enter the second num" v-model="secondnum" v-show="secondnumshow">
+        <button @click="showsedcondnum(),showbuuts(),buttonok()" v-show="showok"> ok </button>
+        <div v-show="inputone">
+            <button v-for="key in keys" @click="buttons(key)"> {{key}} </button>
+        </div>
+        <div v-show="inputtwo">
+            <button v-for="keyy in keys2" @click="buttonstwo(keyy)"> {{keyy}} </button>
+        </div>
+       <div>
+        <button @click="plus()">+</button>
+        <button @click="sub()">-</button>
+        <button @click="mul()">x</button>
+        <button @click="div()">/</button>
+       </div>
+        <button @click="showresult()">=</button>
+        <button @click="clear()">Clear</button>
+        <div v-show="result">
+            <ul>
+                <li> your result is : {{sum}} </li>
+            </ul>
+        </div>
+        </div>
+    </main>
+
+</body>
+</html>
